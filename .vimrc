@@ -42,10 +42,28 @@ endif
 
 set tags=$PWD/tags	" 현재 디렉토리의 ctags 설정
 
-
 " cscope 파일 설정
 if filereadable("./cscope.out")
   cs add cscope.out
 endif
 set csverb
 
+" setting Vundle
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+call vundle#end()
+
+nmap <F9> :NERDTree<CR>
+nmap <F10> :TlistToggle<CR>
+nmap <F12> :noh<CR>
