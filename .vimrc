@@ -8,7 +8,7 @@ set autoindent		" 자동 들여쓰기
 set ts=4			" 탭간격
 set sts=4
 set cindent			" c 자동 들여쓰기
-set laststatus=4
+set laststatus=2
 set shiftwidth=4	" 자동 들여쓰기 간격
 set showmatch		" 괄호 반대쪽 보여주기
 set smartcase
