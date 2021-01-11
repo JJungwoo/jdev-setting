@@ -26,9 +26,9 @@ set backspace=eol,start,indent	" 라인의 시작과 끝의 들여쓰기를 백�
 
 syntax on			" 문법 강조 기능
 
-" 라인 끝에 있는 공백문자 보이게 설정
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
+" 라인 끝에 있는 공백문자 보이게 설정 -> 다른 vim plugin 때문에 동작 안됌 -> plugin 설치로 해결
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"match ExtraWhitespace /\s\+$/
 
 " 특정 파일 타입에 따라 저장할 때 라인 끝 공백문자 제거
 autocmd FileType c,cpp,java,python,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -61,7 +61,7 @@ Plugin 'scrooloose/nerdtree'				" 폴더 구조를 트리 형태로 보여줌
 "Plugin 'scrooloose/nerdcommenter'			" 여러줄 한번에 주석 처리
 Plugin 'vim-airline/vim-airline'			" 하단 상태 메뉴 더 자세히 + 꾸미기
 Plugin 'altercation/vim-colors-solarized'	" vim 편집기 바탕 및 글색 설정
-Plugin 'tomasr/molokai'						" vim 편집기 스타일 변경 
+Plugin 'tomasr/molokai'						" vim 편집기 스타일 변경
 Plugin 'nanotech/jellybeans.vim'
 "Plugin 'valloric/youcompleteme'				" 문자 완성 도움
 "Plugin 'scrooloose/syntastic'				" 문법 체크
@@ -70,10 +70,11 @@ Plugin 'taglist.vim'                    	" 매크로, 함수, 변수 등의 리�
 Plugin 'Raimondi/delimitMate'				" 괄호 자동 완성
 Plugin 'SirVer/ultisnips'					" 자동 완성
 Plugin 'honza/vim-snippets'
+Plugin 'ntpeters/vim-better-whitespace'		" 공백 체크
 
 call vundle#end()
 
-colorscheme molokai	" vim 편집기 스타일 변경	
+colorscheme molokai	" vim 편집기 스타일 변경
 
 color jellybeans
 
