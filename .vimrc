@@ -22,6 +22,8 @@ set showcmd			" 사용자가 입력한 명령어 표시
 set clipboard=unnamed			" vim에서 복사한 내용 클립보드에 저장
 set paste			" 복사한 내용을 붙여넣을 때, 자동 들여쓰기없이 복사
 set pastetoggle=<F2>			" paste 옵션 적용 시 옵션을 온 오프하도록 설정
+set backspace=eol,start,indent	" 라인의 시작과 끝의 들여쓰기를 백스페이스로 지움
+
 syntax on			" 문법 강조 기능
 
 " 라인 끝에 있는 공백문자 보이게 설정
@@ -54,16 +56,44 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'VundleVim/Vundle.vim'				" vim 플러그인 관리
+Plugin 'scrooloose/nerdtree'				" 폴더 구조를 트리 형태로 보여줌
+"Plugin 'scrooloose/nerdcommenter'			" 여러줄 한번에 주석 처리
+Plugin 'vim-airline/vim-airline'			" 하단 상태 메뉴 더 자세히 + 꾸미기
+Plugin 'altercation/vim-colors-solarized'	" vim 편집기 바탕 및 글색 설정
+Plugin 'tomasr/molokai'						" vim 편집기 스타일 변경 
+Plugin 'nanotech/jellybeans.vim'
+"Plugin 'valloric/youcompleteme'				" 문자 완성 도움
+"Plugin 'scrooloose/syntastic'				" 문법 체크
+Plugin 'terryma/vim-multiple-cursors'		" 멀티 커서
+Plugin 'taglist.vim'                    	" 매크로, 함수, 변수 등의 리스트를 정렬하여 보여줌
+Plugin 'Raimondi/delimitMate'				" 괄호 자동 완성
+Plugin 'SirVer/ultisnips'					" 자동 완성
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
-nmap <F9> :NERDTree<CR>
-nmap <F10> :TlistToggle<CR>
+colorscheme molokai	" vim 편집기 스타일 변경	
+
+color jellybeans
+
+" delimitMate
+let delimitMate_expand_cr=1
+
+" vim-multiple-cursor
+let g:multi_cursor_use_default_mapping=0
+" Default mapping 다중 커서
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+
+nmap <F7> :NERDTree<CR>
+nmap <F8> <ESC>:Tlist<CR>
 nmap <F12> :noh<CR>
