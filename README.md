@@ -11,5 +11,4 @@ jungwoo's vim editor setting repo
 - vim plugin 설정 추가하기
 	- nerdcommenter
 	- youcompleteme
-	- syntastic
 
