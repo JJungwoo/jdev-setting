@@ -1,0 +1,4 @@
+
+# Custome command list
+
+alias mkcscope='~/bin/mkcscope.sh'
