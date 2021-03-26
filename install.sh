@@ -42,13 +42,16 @@ fi
 cp mkcscope.sh ~/bin/
 
 echo "set custom command"
-if [ ! -e "~/.zshrc" ]; then
+if [ -e "~/.zshrc" ]; then
+	echo "command_list set zshrc"
 	cat command_list >> ~/.zshrc
 	. ~/.zshrc
-elif [ ! -e "~/.bashrc" ]; then
+elif [ -e "~/.bashrc" ]; then
+	echo "command_list set bashrc"
 	cat command_list >> ~/.bashrc
 	. ~/.bashrc
 else
+	echo "command_list set bash_profile"
 	cat command_list >> ~/.bash_profile
 	. ~/.bash_profile
 fi
