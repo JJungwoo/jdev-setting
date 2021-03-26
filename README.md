@@ -1,13 +1,35 @@
 # jvim-setting
 jungwoo's vim editor setting repo
 
+### 설치 방법
+
+```
+$ chmod +x install.sh
+$ ./install.sh
+```
+
+이후에 vi 편집기 열어서 아래 명령어 실행하여 vim plugin 설치
+
+```
+$ vi
+$ :PluginInstall
+```
+
+### 설치 내용 설명
+
+- vim, ctags, cscope 설치
+- vundle 설치
+- vimrc 설정
+- root/home/bin 디렉터리 생성
+  - bin : 사용자 명령어 모음 디렉터리
+- bin 디렉터리에 사용자 명령어 추가
+- 사용자 명령어 현재 유저에 추가
+
 ### 추가할 내용
-- 설치 스크립트 내용 추가
-	- install.sh OS 마다 확인
-	- 더 필요한 설치 명령어 추가
 - 사용자 전용 명령어 추가
 	- git 명령어 축약
 	- 시스템 명령어 축약
+	- 모니터링 명령어 축약
 - vim plugin 설정 추가하기
 	- nerdcommenter
 	- youcompleteme

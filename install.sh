@@ -45,8 +45,11 @@ echo "set custom command"
 if [ ! -e "~/.zshrc" ]; then
 	cat command_list >> ~/.zshrc
 	. ~/.zshrc
-else
+elif [ ! -e "~/.bashrc" ]; then
 	cat command_list >> ~/.bashrc
 	. ~/.bashrc
+else
+	cat command_list >> ~/.bash_profile
+	. ~/.bash_profile
 fi
 
