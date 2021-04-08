@@ -48,8 +48,11 @@ endif
 set tags=$PWD/tags	" 현재 디렉토리의 ctags 설정
 
 " cscope 파일 설정
+set nocsverb
 if filereadable("./cscope.out")
-  cs add cscope.out
+    cs add cscope.out
+else
+    cs add $PWD/cscope.out
 endif
 set csverb
 
@@ -61,7 +64,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'				" vim 플러그인 관리
 Plugin 'scrooloose/nerdtree'				" 폴더 구조를 트리 형태로 보여줌
-"Plugin 'scrooloose/nerdcommenter'			" 여러줄 한번에 주석 처리
+Plugin 'scrooloose/nerdcommenter'			" 여러줄 한번에 주석 처리
 Plugin 'vim-airline/vim-airline'			" 하단 상태 메뉴 더 자세히 + 꾸미기
 Plugin 'altercation/vim-colors-solarized'	" vim 편집기 바탕 및 글색 설정
 Plugin 'tomasr/molokai'						" vim 편집기 molokai 스타일 변경
@@ -74,6 +77,8 @@ Plugin 'Raimondi/delimitMate'				" 괄호 자동 완성
 Plugin 'SirVer/ultisnips'					" 자동 완성
 Plugin 'honza/vim-snippets'
 Plugin 'ntpeters/vim-better-whitespace'		" 공백 체크
+
+Plugin 'iamcco/markdown-preview.nvim'       " Markdown Viewer
 
 call vundle#end()
 
