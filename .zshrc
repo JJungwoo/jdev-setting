@@ -120,3 +120,19 @@ prompt_context() {
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
+
+
+# Custome command list
+
+# git status
+alias gst='git status'
+
+# make mkcscope
+alias mkcscope='~/bin/mkcscope.sh'
+
+# set ctags and mkcscope
+alias init_tag='ctags -R | mkcscope'
+
+# check user process
+alias chk='ps -ef | grep `whoami`'
+

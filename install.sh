@@ -20,34 +20,53 @@ if [ ${OS} == "Linux" ]; then
 	fi
 elif [ ${OS} == "Darwin" ]; then
     echo "Install macos package"
-	sudo brew install vim ctags cscope
+	brew install vim ctags cscope
     home_path=/Users/${user}/
 else
 	echo "This OS not supported to install.sh"
 fi
 
+echo "set user home_path :" ${home_path}
+
 # vundle install
-if [ -d "~/.vim/bundle/Vundle.vin" ]; then
+if [ -e "${home_path}.vim/bundle/Vundle.vim" ]; then
     echo "Alreadly install vundle"
 else
     echo "Install vundle"
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-echo "cp vimrc"
-cp .vimrc ~/.vimrc
+if [ -e "${home_path}.vimrc" ]; then
+    echo "extst vimrc"
+else
+    echo "cp ${home_path}vimrc"
+    cp .vimrc ${home_path}/.vimrc
+fi
 
 # custome command add
 
-if [ -e "${home_path}/bin/" ]; then
+if [ -d "${home_path}bin/" ]; then
     echo "exist bin directory"
 else
-    echo "create bin directory"
-	mkdir ${home_path}/bin/
+    echo "create ${home_path}/bin directory"
+	mkdir ${home_path}bin/
 fi
 
-cp mkcscope.sh ~/bin/
+if [ -e "${home_path}bin/mkcscope.sh" ]; then
+    echo "Alreadly copy mkcscope.sh"
+else
+    echo "copy success ${home_path}bin/mkcscope.sh"
+    cp mkcscope.sh ${home_path}bin/
+fi
 
+if [ -e "${home_path}.zshrc" ]; then
+    echo "exist" ${home_path}".zshrc"
+else
+    cp ./zshrc ${home_path}.zshrc
+fi
+
+
+: << "END"
 echo "set custom command"
 if [ -e "${home_path}/.zshrc" ]; then
 	echo "command_list set zshrc"
@@ -62,4 +81,4 @@ else
 	cat command_list >> ~/.bash_profile
 	. ~/.bash_profile
 fi
-
+END
