@@ -1,5 +1,5 @@
-# jvim-setting
-jungwoo's vim editor setting repo
+# jdev-setting
+my development environment setting repo
 
 ### 설치 방법
 
